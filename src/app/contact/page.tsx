@@ -12,6 +12,7 @@ import {
 import { ButtonLink, ExternalIcon } from "@/components/ui";
 import { CopyEmail } from "@/components/ui/CopyEmail";
 import { pageMetadata } from "@/lib/seo";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
@@ -89,7 +90,7 @@ export default function ContactPage() {
                     {"href" in contactCopy.resume && (
                       <li>
                         <a
-                          href={contactCopy.resume.href}
+                          href={asset(contactCopy.resume.href)}
                           download
                           className="inline-flex items-center gap-2 hover:text-[var(--color-cyan)]"
                         >

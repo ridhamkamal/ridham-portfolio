@@ -26,7 +26,7 @@ export function ProjectGrid() {
               aria-pressed={on}
               onClick={() => setFilter(f)}
               className={cn(
-                "relative rounded-full border px-4 py-2 font-[family-name:var(--font-display)] text-[0.9rem] transition-colors",
+                "relative isolate rounded-full border px-4 py-2 font-[family-name:var(--font-display)] text-[0.9rem] transition-colors",
                 on
                   ? "border-transparent text-[var(--color-bg)]"
                   : "border-[var(--color-line)] text-[var(--color-muted)] hover:border-[var(--color-line-strong)] hover:text-[var(--color-text)]",

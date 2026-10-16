@@ -18,7 +18,8 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  // Origin only: Next adds basePath to metadata image paths itself.
+  metadataBase: new URL(new URL(SITE_URL).origin),
   title: { default: profile.seo.title, template: `%s` },
   description: profile.seo.description,
   authors: [{ name: profile.name }],

@@ -3,6 +3,7 @@ import { profile } from "@/data/profile";
 import { HeroCanvas } from "@/components/three/HeroCanvas";
 import { CursorFollow, TextReveal } from "@/components/motion";
 import { ArrowIcon, ButtonLink } from "@/components/ui";
+import { asset } from "@/lib/asset";
 
 export function Hero() {
   return (
@@ -29,7 +30,7 @@ export function Hero() {
           <div className="fade-up" style={{ animationDelay: "calc(0.05s / var(--motion-speed))" }}>
             <p className="mb-6 inline-flex items-center gap-3 rounded-full border border-[var(--color-line)] bg-[rgba(19,19,26,0.6)] py-1.5 pr-4 pl-1.5 font-[family-name:var(--font-display)] text-sm text-[var(--color-muted)] backdrop-blur">
               <Image
-                src={profile.headshot.src}
+                src={asset(profile.headshot.src)}
                 alt=""
                 width={28}
                 height={28}

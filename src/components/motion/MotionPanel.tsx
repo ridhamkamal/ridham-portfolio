@@ -93,7 +93,7 @@ function Segmented<T extends string | number>({
               disabled={disabled}
               onClick={() => onChange(o.value)}
               className={cn(
-                "relative z-10 rounded-full px-3 py-1.5 font-[family-name:var(--font-display)] text-sm transition-colors",
+                "relative isolate z-10 rounded-full px-3 py-1.5 font-[family-name:var(--font-display)] text-sm transition-colors",
                 on ? "text-[var(--color-bg)]" : "text-[var(--color-muted)] hover:text-[var(--color-text)]",
               )}
             >

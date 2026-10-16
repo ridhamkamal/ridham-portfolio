@@ -39,11 +39,17 @@ Copy `.env.example` to `.env.local` to override. No secrets are used anywhere, a
 
 ## Deploy
 
-**Vercel (recommended).** Go to vercel.com/new, sign in with GitHub, import `ridhamkamal/ridham-portfolio`, and click Deploy. No settings are needed: Vercel detects Next.js, and the site reads `VERCEL_PROJECT_PRODUCTION_URL` for canonical and share links. Every push to `main` redeploys automatically.
+**Live site:** https://ridhamkamal.github.io/ridham-portfolio/
 
-To use a custom domain, add it in the Vercel project settings and set `NEXT_PUBLIC_SITE_URL` to it.
+**GitHub Pages (current).** `.github/workflows/pages.yml` runs lint, typecheck and tests, builds a static export (`npm run build:pages`) and publishes `out/` on every push to `main`. Nothing else to configure. To check the static build locally, run:
 
-All pages are static (`○`/`●` in the build output), so any host that runs `next start` also works.
+```bash
+npm run build:pages
+```
+
+The Pages build differs from `npm run build` in three ways: `output: "export"`, images served unoptimized, and the `/ridham-portfolio` base path. Raw paths to files in `public/` go through `asset()` in `src/lib/asset.ts`, so they get the base path.
+
+**Vercel or any Node host.** `npm run build`, then `npm run start`. On Vercel the canonical URL comes from `VERCEL_PROJECT_PRODUCTION_URL` automatically. For a custom domain, set `NEXT_PUBLIC_SITE_URL`.
 
 ## Editing content
 

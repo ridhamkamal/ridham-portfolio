@@ -32,6 +32,7 @@ import { ProjectCard } from "@/components/work/ProjectCard";
 import { Gallery } from "@/components/case-studies/Gallery";
 import { RoleGantt, Timeline } from "@/components/experience/Timeline";
 import { DashboardPreviewChart } from "./DashboardPreviewChart";
+import { asset } from "@/lib/asset";
 
 export function ImpactSnapshot() {
   return (
@@ -103,7 +104,7 @@ export function FeaturedProduct() {
           <FadeIn>
             <div className="mb-6 flex items-center gap-4">
               <Image
-                src={logo.src}
+                src={asset(logo.src)}
                 alt={logo.alt}
                 width={72}
                 height={85}

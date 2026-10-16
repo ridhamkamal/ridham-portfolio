@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/cn";
+import { asset } from "@/lib/asset";
 
 /**
  * Artifact preview per project. WonderWord shows the real product; concepts
@@ -25,7 +26,7 @@ export function ProjectVisual({
     >
       {slug === "wonderword-ai" && (
         <Image
-          src="/images/wonderword-child-home.jpg"
+          src={asset("/images/wonderword-child-home.jpg")}
           alt="WonderWord AI child home screen with the Snap homework action in the centre"
           fill
           sizes="(min-width: 1024px) 560px, 100vw"

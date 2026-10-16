@@ -5,6 +5,7 @@ import { FadeIn, HoverLift, ParallaxLayer, StaggerChildren, StaggerItem, Tilt3D 
 import { ButtonLink } from "@/components/ui";
 import { TestimonialBlock } from "@/components/home/HomeSections";
 import { pageMetadata } from "@/lib/seo";
+import { asset } from "@/lib/asset";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
@@ -30,7 +31,7 @@ export default function AboutPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/contact">Get in touch</ButtonLink>
             {"href" in contactCopy.resume && (
-              <ButtonLink href={contactCopy.resume.href} variant="ghost" external download>
+              <ButtonLink href={asset(contactCopy.resume.href)} variant="ghost" external download>
                 {contactCopy.resume.label}
               </ButtonLink>
             )}
@@ -40,7 +41,7 @@ export default function AboutPage() {
           <Tilt3D size="md" className="[border-radius:var(--radius-xl)]">
             <div className="card overflow-hidden rounded-[var(--radius-xl)] p-2">
               <Image
-                src={profile.headshot.src}
+                src={asset(profile.headshot.src)}
                 alt={`Portrait of ${profile.name}`}
                 width={520}
                 height={520}

@@ -7,6 +7,7 @@ import { screenshots } from "@/data/wonderword";
 import { Tilt3D } from "@/components/motion";
 import { useMotionPrefs } from "@/hooks/useMotionPrefs";
 import { cn } from "@/lib/cn";
+import { asset } from "@/lib/asset";
 
 /**
  * Tabbed product gallery (WAI-ARIA tabs pattern) with browser-chrome frames,
@@ -54,7 +55,7 @@ export function Gallery({ className }: { className?: string }) {
             tabIndex={n === i ? 0 : -1}
             onClick={() => setI(n)}
             className={cn(
-              "relative rounded-full px-4 py-2 font-[family-name:var(--font-display)] text-[0.9rem] transition-colors",
+              "relative isolate rounded-full px-4 py-2 font-[family-name:var(--font-display)] text-[0.9rem] transition-colors",
               n === i ? "text-[var(--color-bg)]" : "text-[var(--color-muted)] hover:text-[var(--color-text)]",
             )}
           >
@@ -98,7 +99,7 @@ export function Gallery({ className }: { className?: string }) {
                   className="absolute inset-0"
                 >
                   <Image
-                    src={shot.src}
+                    src={asset(shot.src)}
                     alt={shot.alt}
                     fill
                     sizes="(min-width: 1024px) 760px, 100vw"
@@ -114,7 +115,7 @@ export function Gallery({ className }: { className?: string }) {
         </Tilt3D>
       </div>
 
-      <Lightbox open={zoom} onClose={() => setZoom(false)} src={shot.src} alt={shot.alt} />
+      <Lightbox open={zoom} onClose={() => setZoom(false)} src={asset(shot.src)} alt={shot.alt} />
     </div>
   );
 }

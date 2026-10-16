@@ -72,7 +72,7 @@ export function Nav() {
                   href={n.href}
                   aria-current={isActive(n.href) ? "page" : undefined}
                   className={cn(
-                    "relative rounded-full px-3.5 py-2 font-[family-name:var(--font-display)] text-[0.9rem] transition-colors",
+                    "relative isolate rounded-full px-3.5 py-2 font-[family-name:var(--font-display)] text-[0.9rem] transition-colors",
                     isActive(n.href)
                       ? "text-[var(--color-text)]"
                       : "text-[var(--color-muted)] hover:text-[var(--color-text)]",
