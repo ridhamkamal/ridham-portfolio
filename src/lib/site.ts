@@ -1,6 +1,13 @@
 import { profile } from "@/data/profile";
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? profile.seo.siteUrl).replace(/\/$/, "");
+/**
+ * Canonical origin. Order: explicit NEXT_PUBLIC_SITE_URL, then the production
+ * domain Vercel injects at build time, then the address in profile.ts.
+ */
+const vercelHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? (vercelHost ? `https://${vercelHost}` : profile.seo.siteUrl)
+).replace(/\/$/, "");
 
 export const NAV = [
   { href: "/work", label: "Work" },

@@ -33,19 +33,15 @@ Requires Node 20 or newer (built and tested on Node 24).
 
 | Name | Required | Default | Used for |
 |---|---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | No | `https://ridhamchawala15.netlify.app` | Canonical URLs, Open Graph, `sitemap.xml`, `robots.txt`, JSON-LD |
+| `NEXT_PUBLIC_SITE_URL` | No | Vercel production URL, else the address in `profile.ts` | Canonical URLs, Open Graph, `sitemap.xml`, `robots.txt`, JSON-LD |
 
 Copy `.env.example` to `.env.local` to override. No secrets are used anywhere, and the site sends no analytics.
 
 ## Deploy
 
-**Netlify (configured).** `netlify.toml` sets the build command and Node version, and Netlify's Next.js runtime is detected automatically. Connect the repository, or run:
+**Vercel (recommended).** Go to vercel.com/new, sign in with GitHub, import `ridhamkamal/ridham-portfolio`, and click Deploy. No settings are needed: Vercel detects Next.js, and the site reads `VERCEL_PROJECT_PRODUCTION_URL` for canonical and share links. Every push to `main` redeploys automatically.
 
-```bash
-npx netlify deploy --build --prod
-```
-
-**Vercel.** Import the repository; no configuration is needed. Set `NEXT_PUBLIC_SITE_URL` to the production domain.
+To use a custom domain, add it in the Vercel project settings and set `NEXT_PUBLIC_SITE_URL` to it.
 
 All pages are static (`○`/`●` in the build output), so any host that runs `next start` also works.
 
